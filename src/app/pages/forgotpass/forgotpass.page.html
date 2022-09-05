@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Olvido su contraseña</ion-title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formulario="ngForm">
+    <div hidden id="form">{{formulario.valid}}</div>
+  <div class="container h-100 w-100 pt-5 bg-light">
+    <div class="p-5">
+      <img src="./././assets/images/logo.png" width="250" class="rounded mx-auto d-block" alt="">
+    </div>
+    <div class="col-12 border-bottom border-secondary p-5">
+      <ion-input minlength="5" type="text" name="usuario" [(ngModel)]="usuario" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" required placeholder="Usuario"></ion-input>
+      <div class="d-flex justify-content-center">
+        <button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
+      </div>
+   </div>
+    <div class="d-flex justify-content-center p-5 mb-5">
+      <a routerLink="/signin"><span class="text-center text-decoration-underline">Iniciar Sesion</span></a>
+    </div>
+  </div>
+  </form>
+</ion-content>
