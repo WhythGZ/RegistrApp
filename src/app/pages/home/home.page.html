@@ -4,26 +4,63 @@
     <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
 </ion-header>
 
-  <ion-app>
-  <ion-tabs>
 
+<ion-app>
+  <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="perfil">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
-      
+
       <ion-tab-button tab="qr">
         <ion-icon name="scan-outline"></ion-icon>
         <ion-label>Scan QR</ion-label>
       </ion-tab-button>
-  
+      
+      <ion-tab-button tab="perfil">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
       <ion-tab-button tab="asistencia">
         <ion-icon name="book-outline"></ion-icon>
         <ion-label>Asistencia</ion-label>
-      </ion-tab-button>
-  
+      </ion-tab-button>  
     </ion-tab-bar>
+
+    <ion-menu side="end" content-id="main-content">
+      <ion-header>
+        <ion-toolbar translucent>
+          <ion-title>Opciones</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item (click)="presentAlert('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')" >
+              <ion-icon name="log-out" slot="start"></ion-icon>
+              <ion-label>Cerrar Sesión</ion-label>
+          </ion-item>
+          <ion-item (click)="config()">
+            <ion-icon name="settings" slot="start"></ion-icon>
+            <ion-label>Configuración</ion-label>
+          </ion-item>
+          <ion-item (click)="presentAlert('Salir','¿Esta seguro que desea salir?')">
+            <ion-icon name="power" slot="start"></ion-icon>
+            <ion-label>Salir</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button>
+              <ion-icon name="settings-outline"></ion-icon>
+            </ion-menu-button>
+          </ion-buttons>
+          <ion-title>Inicio</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
   
   </ion-tabs>
 </ion-app>

@@ -7,23 +7,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form #formulario="ngForm">
-    <div hidden id="form">{{formulario.valid}}</div>
-    <div class="container h-100 w-100 pt-5 bg-light">
-      <div class="p-5">
-        <img src="./././assets/images/logo.png" width="250" class="rounded mx-auto d-block" alt="">
-      </div>
-      <div class="col-12 border-bottom border-secondary p-5">
-        <ion-input minlength="5" name="username" [(ngModel)]="usuario.username" required type="text" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Usuario"></ion-input>
-        <ion-input minlength="5" name="password" [(ngModel)]="usuario.password" required type="password" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Contraseña"></ion-input>
-        <div class="d-flex justify-content-center">
-          <button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">INGRESAR</span></button>
-        </div>
-    </div>
-      <div class="d-flex justify-content-center p-5 mb-5">
-        <a routerLink="/forgotpass"><span class="text-center text-decoration-underline">Olvidé mi contraseña</span></a>
-      </div>
-    </div>
-  </form>
-</ion-content>
+<ion-app class="container">
+  <br><br><br><br>
+    <ion-grid fixed="true">
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+            <form #formulario="ngForm">
+              <div class="m-100 h-100 pt-5 bg-light">
+                <ion-card-header>
+                  <div hidden id="form">{{formulario.valid}}</div>
+                  <div class="p-5">
+                    <img src="./././assets/images/logo.png" width="250" class="rounded mx-auto d-block" alt="">
+                  </div>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="col-12 border-bottom border-secondary p-5">
+                    <ion-input minlength="5" name="username" [(ngModel)]="usuario.username" required type="text" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Usuario"></ion-input>
+                    <ion-input minlength="5" name="password" [(ngModel)]="usuario.password" required type="password" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Contraseña"></ion-input>
+                    <div class="d-flex justify-content-center">
+                      <button routerLink="/home" [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">INGRESAR</span></button>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center p-5 mb-5">
+                    <a routerLink="/forgotpass"><span class="text-center text-decoration-underline">Olvidé mi contraseña</span></a>
+                  </div>
+                </ion-card-content>
+              </div>
+            </form>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-app>

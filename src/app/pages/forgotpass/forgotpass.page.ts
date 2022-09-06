@@ -11,12 +11,12 @@ export class ForgotpassPage implements OnInit {
 
   constructor(private toastController: ToastController) { }
 
-  async presentToast(position: 'top' | 'middle' | 'bottom'){
+  async presentToast(position: 'top' | 'middle' | 'bottom', message, icon){
     const toast = await this.toastController.create({
-      message:'Debe rellenar los campos',
+      message,
       duration: 1500,
       position,
-      icon: 'alert-circle-sharp'
+      icon,
     });
 
     await toast.present();
@@ -25,10 +25,10 @@ export class ForgotpassPage implements OnInit {
   validarForm(){
     const flag = document.getElementById('form').textContent;
     if (flag === 'true'){
-      console.log('ingreso');
+      this.presentToast('bottom','Instrucciones enviadas a su correo electronico','mail-sharp');
     }
     else{
-      this.presentToast('bottom');
+      this.presentToast('bottom','Debe rellenar los campos','alert-circle-sharp');
     }
   }
   ngOnInit() {
