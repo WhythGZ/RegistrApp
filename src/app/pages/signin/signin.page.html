@@ -26,7 +26,7 @@
                     <ion-input minlength="5" name="username" [(ngModel)]="usuario.username" required type="text" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Usuario"></ion-input>
                     <ion-input minlength="5" name="password" [(ngModel)]="usuario.password" required type="password" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Contraseña"></ion-input>
                     <div class="d-flex justify-content-center">
-                      <button routerLink="/home" [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">INGRESAR</span></button>
+                      <button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">INGRESAR</span></button>
                     </div>
                   </div>
                   <div class="d-flex justify-content-center p-5 mb-5">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -14,7 +14,7 @@ export class SigninPage implements OnInit {
     password: '',
   };
 
-  constructor(private toastController: ToastController) {}
+  constructor(private toastController: ToastController, private router: Router) {}
 
   async presentToast(position: 'top' | 'middle' | 'bottom'){
     const toast = await this.toastController.create({
@@ -30,7 +30,7 @@ export class SigninPage implements OnInit {
   validarForm(){
     const flag = document.getElementById('form').textContent;
     if (flag === 'true'){
-      console.log('ingreso');
+      this.router.navigate(['/home']);
     }
     else{
       this.presentToast('bottom');
