@@ -29,8 +29,10 @@
                       <button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">INGRESAR</span></button>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-center p-5 mb-5">
-                    <a routerLink="/forgotpass"><span class="text-center text-decoration-underline">Olvidé mi contraseña</span></a>
+                  <div class="d-flex p-5 mb-5">
+                    <a routerLink="/signup"><span class="d-flex m-2 justify-content-start text-decoration-underline">Aun no tengo una cuenta</span></a>
+                    <p class="m-2" >|</p>
+                    <a routerLink="/forgotpass"><span class="d-flex m-2 justify-content-end text-decoration-underline">Olvidé mi contraseña</span></a>
                   </div>
                 </ion-card-content>
               </div>
