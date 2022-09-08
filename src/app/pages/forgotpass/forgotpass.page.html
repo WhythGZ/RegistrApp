@@ -24,9 +24,14 @@
                   </ion-card-header>
                   <ion-card-content>
                     <div class="col-12 border-bottom border-secondary p-5">
-                      <ion-input minlength="5" type="text" name="usuario" [(ngModel)]="usuario" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" required placeholder="Usuario"></ion-input>
+                      <div class="body">
+                        <div class="form">
+                        <input name="username" [(ngModel)]="usuario" type="text" required>
+                          <label class="lbl-nombre"><span class="text-nomb">Usuario</span></label>
+                        </div>   
+                      </div>
                       <div class="d-flex justify-content-center">
-                        <button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
+                        <button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-4 mt-3 col-5"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
                       </div>
                     </div>
                     <div class="p-5 mb-5">
