@@ -24,14 +24,44 @@
                 </ion-card-header>
                 <ion-card-content>
                   <div class="col-12 border-bottom border-secondary p-5">
-                    <ion-input minlength="4" name="name" [(ngModel)]="usuario.name" required type="text" class="col-6 bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3" placeholder="Nombre"></ion-input>
-                    <ion-input minlength="4" name="suname" [(ngModel)]="usuario.suname" required type="text" class=" col-6 bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3" placeholder="Apellido"></ion-input>
-                    <ion-input minlength="5" name="username" [(ngModel)]="usuario.username" required type="text" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Nombre de Usuario"></ion-input>
-                    <ion-input minlength="8" name="email" [(ngModel)]="usuario.email" required type="email" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Email"></ion-input>
-                    <ion-input minlength="5" name="password" [(ngModel)]="usuario.password" required type="password" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Contraseña"></ion-input>
-                    <ion-input minlength="5" name="password" [(ngModel)]="usuario.password" required type="password" class="bg-transparent border-1 border-top-0 border-top-0 border-start-0 border-end-0 form-control mt-3 col-10" placeholder="Confirmar Contraseña"></ion-input>
+                    <div class="body">
+                      <div class="form">
+                      <input name="name" [(ngModel)]="usuario.name" type="text" required>
+                        <label class="lbl-input"><span class="text-inp">Nombre</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                      <input name="suname" [(ngModel)]="usuario.suname" type="text" required>
+                        <label class="lbl-input"><span class="text-inp">Apellido</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                      <input name="username" [(ngModel)]="usuario.username" type="text" required>
+                        <label class="lbl-input"><span class="text-inp">Usuario</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                      <input name="email" [(ngModel)]="usuario.email" type="email" required>
+                        <label class="lbl-input"><span class="text-inp">Email</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                      <input name="password" [(ngModel)]="usuario.password" type="password" required>
+                        <label class="lbl-input"><span class="text-inp">Contraseña</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                      <input name="password" [(ngModel)]="usuario.password" type="password" required>
+                        <label class="lbl-input"><span class="text-inp">Confirmar Contraseña</span></label>
+                      </div>   
+                    </div>
                     <div class="d-flex justify-content-center">
-                      <button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-12"><span class="text-center text-white fw-bold">CREAR CUENTA</span></button>
+                      <button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mt-3 col-5"><span class="text-center text-white fw-bold">CREAR CUENTA</span></button>
                     </div>
                   </div>
                   <div class="d-flex justify-content-center p-5 mb-5">
