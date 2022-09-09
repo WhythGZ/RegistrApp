@@ -6,7 +6,6 @@
     <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
   </ion-toolbar>
 </ion-header>
-
 <ion-app class="container">
   <ion-content>
     <br><br><br><br>
@@ -31,7 +30,7 @@
                         </div>   
                       </div>
                       <div class="d-flex justify-content-center">
-                        <button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-4 mt-3 col-5"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
+                        <button #button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-4 mt-3 col-5"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
                       </div>
                     </div>
                     <div class="p-5 mb-5">
@@ -47,3 +46,7 @@
       </ion-grid>
     </ion-content>
 </ion-app>
+
+
+
+
