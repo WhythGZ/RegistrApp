@@ -6,7 +6,7 @@
       "username": "NancyOsorio",
       "email": "nancyosorio@gmail.com",
       "password": "asdads",
-      "isAdmin": "true",
+      "isAdmin": "false",
       "id": "2"
     },
     {
@@ -15,7 +15,7 @@
       "username": "RenataQuintana",
       "email": "renataquintana@gmail.com",
       "password": "asasd",
-      "isAdmin": "false",
+      "isAdmin": "true",
       "id": "3"
     },
     {
@@ -25,7 +25,16 @@
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
       "password": "",
-      "isAdmin": "true"
+      "isAdmin": "false"
+    },
+    {
+      "name": "Alister",
+      "suname": "Gonzalez",
+      "username": "Whyth",
+      "email": "ali.gonzalezq@duocuc.cl",
+      "password": "xdxdxd",
+      "isAdmin": "true",
+      "id": "mG8Vg_3"
     }
   ]
 }

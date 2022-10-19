@@ -22,6 +22,7 @@ export class CreatePage implements OnInit {
     username: '',
     email: '',
     password: '',
+    isAdmin: '',
   }
 
   constructor(private router: Router,
@@ -37,6 +38,7 @@ export class CreatePage implements OnInit {
                   username: [''],
                   email: [''],
                   password: [''],
+                  isAdmin: [''],
                 })
                }
 
