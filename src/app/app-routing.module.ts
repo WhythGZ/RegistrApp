@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'signin',
     pathMatch: 'full'
   },
   {
@@ -22,6 +22,18 @@ const routes: Routes = [
   {
     path: 'forgotpass',
     loadChildren: () => import('./pages/forgotpass/forgotpass.module').then( m => m.ForgotpassPageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./pages/crud/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./pages/crud/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/crud/list/list.module').then( m => m.ListPageModule)
   },
 ];
 

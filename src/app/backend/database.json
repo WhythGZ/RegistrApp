@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    {
+      "name": "Nancy",
+      "suname": "Osorio",
+      "username": "NancyOsorio",
+      "email": "nancyosorio@gmail.com",
+      "password": "asdads",
+      "isAdmin": "true",
+      "id": "2"
+    },
+    {
+      "name": "Renata",
+      "suname": "Quintana",
+      "username": "RenataQuintana",
+      "email": "renataquintana@gmail.com",
+      "password": "asasd",
+      "isAdmin": "false",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "David",
+      "suname": "Morales",
+      "username": "DavidMorales",
+      "email": "davidmorales@gmail.com",
+      "password": "",
+      "isAdmin": "true"
+    }
+  ]
+}
