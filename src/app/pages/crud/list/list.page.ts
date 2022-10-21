@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserCrudService } from '../../../services/user-crud.service';
 import { Router } from '@angular/router';
+import { retry } from 'rxjs/operators';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class ListPage implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
+
 
   ionViewDidEnter() {
     this.userCrudService.getUsers().subscribe((response) => {
@@ -26,7 +29,7 @@ export class ListPage implements OnInit {
     })
   }
 
-  removeUser(user, i) {
+  removeUser(user, id) {
     if (window.confirm('Estas seguro?')) {
       this.userCrudService.deleteUser(user.id)
       .subscribe(() => {
@@ -36,5 +39,4 @@ export class ListPage implements OnInit {
       )
     }
   }
-
 }

@@ -36,14 +36,14 @@ export class UpdatePage implements OnInit {
   }
 
   fetchUser(id) {
-    this.userCrudService.getUser(id).subscribe((data) => {
+    this.userCrudService.getUser(id).subscribe(data => {
       this.updateUserFg.setValue({
-        name: data['name'],
-        suname: data['suname'],
-        username: data['username'],
-        email: data['email'],
-        password: data['password'],
-        isAdmin: data['isAdmin'],
+        name: data[0]['name'],
+        suname: data[0]['suname'],
+        username: data[0]['username'],
+        email: data[0]['email'],
+        password: data[0]['password'],
+        isAdmin: data[0]['isAdmin'],
       });
     });
   }
@@ -59,5 +59,4 @@ export class UpdatePage implements OnInit {
         })
     }
   }
-
 }

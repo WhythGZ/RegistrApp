@@ -11,6 +11,7 @@ export class User {
   username: string;
   email: string;
   password: string;
+  isAdmin: number;
 }
 
 @Injectable({
@@ -21,6 +22,16 @@ export class UserCrudService {
   endpoint = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  
+  createUser(user: User): Observable<any>{
+    return this.http.post<User>(this.endpoint+'/usuario/create', user, this.httpOptions).pipe(
+      retry(3)
+    );
+  }
 
   getUsers():Observable<any>{
     return this.http.get(this.endpoint+'/usuarios').pipe(
@@ -40,12 +51,12 @@ export class UserCrudService {
     );
   }
 
-  
   updateUser(id, user: User): Observable<any> {
     return ;
   }
 
-  createUser(user: User): Observable<any>{
-    return;
+  loginAuth(username){
+    return JSON.stringify(this.http.get(this.endpoint+'/usuario/find/'+username));
   }
+  
 }
