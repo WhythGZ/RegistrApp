@@ -15,7 +15,7 @@
           <ion-col size="12">
             <ion-card>
               <form #formulario="ngForm">
-                <div class="m-100 h-100 pt-5">
+                <div class="m-100 h-100 pt-5 bg-light">
                   <ion-card-header>
                     <div hidden id="form">{{formulario.valid}}</div>
                     <div class="p-5">
@@ -26,8 +26,8 @@
                     <div class="border-bottom border-secondary">
                       <div class="body">
                       <div class="form">
-                      <input name="username" [(ngModel)]="usuario.username" type="text" required>
-                        <label class="lbl-nombre"><span class="text-nomb">Usuario</span></label>
+                      <input name="email" [(ngModel)]="usuario.email" type="email" required>
+                        <label class="lbl-nombre"><span class="text-nomb">Email</span></label>
                       </div>   
                     </div>
                     <div class="body">

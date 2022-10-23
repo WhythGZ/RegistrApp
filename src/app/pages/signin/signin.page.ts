@@ -1,8 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { updateShorthandPropertyAssignment } from 'typescript';
+
 
 @Component({
   selector: 'app-signin',
@@ -13,15 +16,16 @@ export class SigninPage implements OnInit {
   @ViewChild('button',{read:ElementRef})button:ElementRef;
 
   usuario = {
-    username: '',
+    email: '',
     password: '',
   };
+
+  obj: any;
   
-  USER = this.auth.USER;
 
   constructor(private auth: AuthService, private toastController: ToastController, private router: Router,private animationCtrl: AnimationController) {}
 
-  async presentToast(message ,position: 'top' | 'middle' | 'bottom'){
+  async presentToast(message, position: 'top' | 'middle' | 'bottom'){
     const toast = await this.toastController.create({
       message,
       duration: 1500,
@@ -45,20 +49,25 @@ export class SigninPage implements OnInit {
   await animation.play();
     const flag = document.getElementById('form').textContent;
     if (flag === 'true'){
-      let valid = this.auth.auth(this.usuario.username, this.usuario.password)
-      if (!valid){
-        this.presentToast('Credenciales invalidas','bottom');
-      }
-      else{
-        this.router.navigate(['/home']);
-      }
+      await this.auth.auth(this.usuario.email, this.usuario.password)
     }
     else{
       this.presentToast('Debe rellenar los campos', 'bottom');
     }
 
   }
-  ngOnInit() {
 
+  dataToPage(data){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: data
+      }
+    };
+    this.router.navigate(['home'], navigationExtras)
   }
+
+  ngOnInit() {
+    // console.clear()
+  }
+
 }

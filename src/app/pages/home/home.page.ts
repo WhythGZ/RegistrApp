@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router, Routes } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router, Routes } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
 
 import { MenuController } from '@ionic/angular';
+
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +14,45 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
   handlerMessage = '';
   roleMessage = '';
-  constructor(private router: Router ,private menu: MenuController, private alertController: AlertController) { }
+  data: any;
+
+  constructor(private auth: AuthService, private activeRoute: ActivatedRoute, private router: Router ,private menu: MenuController, private alertController: AlertController) {
+    this.activeRoute.queryParams.subscribe(paramas => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.data = this.router.getCurrentNavigation().extras.state.user;
+      }
+    });
+   }
+
+  dataToPage(){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['profile'], navigationExtras)
+  }
+
+  dataToPageList() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['list'], navigationExtras)
+  }
+
+  dataToPageCreate() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['create'], navigationExtras)
+  }
 
   async presentAlert(header, message) {
     const alert = await this.alertController.create({
@@ -55,7 +93,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-
+   this.auth.validate(this.data);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
 import { FormGroup, FormBuilder } from "@angular/forms";
@@ -13,6 +13,7 @@ import { User, UserCrudService } from '../../../services/user-crud.service';
 
 export class CreatePage implements OnInit {
   
+  data: any;
   userForm: FormGroup;
 
   @ViewChild('button',{read:ElementRef})button:ElementRef;
@@ -25,7 +26,9 @@ export class CreatePage implements OnInit {
     isAdmin: '',
   }
 
-  constructor(private router: Router,
+  constructor(
+               private activeRoute: ActivatedRoute,
+               private router: Router,
                private toastController: ToastController, 
                private animationCtrl: AnimationController,
                private formBuilder: FormBuilder,
@@ -40,6 +43,11 @@ export class CreatePage implements OnInit {
                   password: [''],
                   isAdmin: [''],
                 })
+                this.activeRoute.queryParams.subscribe(paramas => {
+                  if (this.router.getCurrentNavigation().extras.state) {
+                    this.data = this.router.getCurrentNavigation().extras.state.user;
+                  }
+                });
                }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message, icon){
@@ -51,6 +59,15 @@ export class CreatePage implements OnInit {
     });
 
     await toast.present();
+  }
+  
+  dataToPageHome() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['home'], navigationExtras)
   }
 
   async validarForm(){

@@ -7,22 +7,37 @@
 
 <ion-app>
   <ion-tabs>
+
+
     <ion-tab-bar slot="bottom">
 
-      <ion-tab-button tab="qr">
-        <ion-icon name="scan-outline"></ion-icon>
-        <ion-label>Scan QR</ion-label>
-      </ion-tab-button>
-      
-      <ion-tab-button tab="perfil">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
+    <ion-tab-button tab="qr">
+      <ion-icon name="scan-outline"></ion-icon>
+      <ion-label>Scan QR</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button (click)="dataToPage()">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
 
-      <ion-tab-button tab="asistencia">
-        <ion-icon name="book-outline"></ion-icon>
-        <ion-label>Asistencia</ion-label>
-      </ion-tab-button>  
+    <ion-tab-button tab="asistencia">
+      <ion-icon name="book-outline"></ion-icon>
+      <ion-label>Asistencia</ion-label>
+    </ion-tab-button>  
+
+
+        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageList()" routerLinkActive="tab-selected" routerLink="/list">
+          <ion-icon name="list-outline"></ion-icon>
+          <ion-label>Lista de Usuarios</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageCreate()" routerLinkActive="tab-selected" routerLink="/create">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Añadir un usuario</ion-label>
+        </ion-tab-button>
+
+
     </ion-tab-bar>
 
     <ion-menu side="end" content-id="main-content">
@@ -57,7 +72,7 @@
               <ion-icon name="settings-outline"></ion-icon>
             </ion-menu-button>
           </ion-buttons>
-          <ion-title>Inicio</ion-title>
+          <ion-title>Bienvenido {{data.name}}</ion-title>
         </ion-toolbar>
       </ion-header>
     </div>

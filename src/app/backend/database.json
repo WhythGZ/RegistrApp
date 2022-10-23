@@ -1,0 +1,67 @@
+{
+  "usuarios": [
+    {
+      "name": "Nancy",
+      "suname": "Osorio",
+      "username": "NancyOsorioOOO",
+      "email": "nancyosorio@gmail.com",
+      "password": "asdads",
+      "isAdmin": "false",
+      "id": "2"
+    },
+    {
+      "name": "Renata",
+      "suname": "Quintana",
+      "username": "RenataQuintana",
+      "email": "renataquintana@gmail.com",
+      "password": "asasd",
+      "isAdmin": "true",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "David",
+      "suname": "Morales",
+      "username": "DavidMorales",
+      "email": "davidmorales@gmail.com",
+      "password": "",
+      "isAdmin": "false"
+    },
+    {
+      "name": "Alister",
+      "suname": "Gonzalez",
+      "username": "Whyth",
+      "email": "ali.gonzalezq@duocuc.cl",
+      "password": "xdxdxd",
+      "isAdmin": "true",
+      "id": "mG8Vg_3"
+    },
+    {
+      "name": "federico",
+      "suname": "santa maria",
+      "username": "federia",
+      "email": "federia@duroc.cl",
+      "password": "holamundo",
+      "isAdmin": "true",
+      "id": "pxfqxhC"
+    },
+    {
+      "name": "Lhian Adolfo",
+      "suname": "Espinoza Bravo",
+      "username": "lh.espinoza",
+      "email": "lh.espinoza@duocuc.cl",
+      "password": "Abcdef123456",
+      "isAdmin": "true",
+      "id": "1bCC-Rz"
+    },
+    {
+      "name": "Francisco",
+      "suname": "Calderon",
+      "username": "Cridboss",
+      "email": "fran.calderon@duocuc.cl",
+      "password": "123123",
+      "isAdmin": "true",
+      "id": "KJzhpX3"
+    }
+  ]
+}

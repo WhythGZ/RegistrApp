@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserCrudService } from '../../../services/user-crud.service';
-import { Router } from '@angular/router';
-import { retry } from 'rxjs/operators';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -11,17 +10,24 @@ import { retry } from 'rxjs/operators';
 })
 export class ListPage implements OnInit {
 
+  data:any;
   Users: any = [];
 
   constructor(
+    private activeRoute: ActivatedRoute,
     private userCrudService: UserCrudService,
     private router: Router
-  ) { }
-
-  ngOnInit() {
-
+  ) {
+    this.activeRoute.queryParams.subscribe(paramas => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.data = this.router.getCurrentNavigation().extras.state.user;
+      }
+    });
   }
 
+  ngOnInit() {
+    
+  }
 
   ionViewDidEnter() {
     this.userCrudService.getUsers().subscribe((response) => {
@@ -29,7 +35,16 @@ export class ListPage implements OnInit {
     })
   }
 
-  removeUser(user, id) {
+  dataToPageHome() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['home'], navigationExtras)
+  }
+
+  removeUser(user, i) {
     if (window.confirm('Estas seguro?')) {
       this.userCrudService.deleteUser(user.id)
       .subscribe(() => {
@@ -39,4 +54,5 @@ export class ListPage implements OnInit {
       )
     }
   }
+
 }
