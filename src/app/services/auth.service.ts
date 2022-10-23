@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserCrudService } from './user-crud.service';
 import { async } from '@angular/core/testing';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,22 @@ export class AuthService {
 
   objt: any;
 
-  constructor(private http:HttpClient,
+  constructor(
+    private toastController: ToastController,
+    private http:HttpClient,
     private userCrudService: UserCrudService,
     private router: Router) { }
+
+    async presentToast(message, position: 'top' | 'middle' | 'bottom'){
+      const toast = await this.toastController.create({
+        message,
+        duration: 1500,
+        position,
+        icon: 'alert-circle-sharp'
+      });
+  
+      await toast.present();
+    }
 
     async auth(email, password){
       let valid = false;
@@ -26,6 +40,7 @@ export class AuthService {
         this.Users = response
         let filtrado = this.Users.filter(obj => obj.email == email);
         if (filtrado.length == 0){
+          this.presentToast("El correo no existe", "bottom");
           console.log("El correo no existe");
         }
         else{
@@ -46,7 +61,7 @@ export class AuthService {
             this.dataToPage(this.objt);
           }
           else{
-            console.log("Las credenciales no coinciden")
+            this.presentToast("Las credenciales no coinciden", "bottom")
           }
         }
       }

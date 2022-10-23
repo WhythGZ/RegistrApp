@@ -49,7 +49,7 @@ export class SigninPage implements OnInit {
   await animation.play();
     const flag = document.getElementById('form').textContent;
     if (flag === 'true'){
-      await this.auth.auth(this.usuario.email, this.usuario.password)
+      this.auth.auth(this.usuario.email, this.usuario.password)
     }
     else{
       this.presentToast('Debe rellenar los campos', 'bottom');
