@@ -7,6 +7,7 @@
       "email": "nancyosorio@gmail.com",
       "password": "asdads",
       "isAdmin": "false",
+      "teacher": "false",
       "id": "2"
     },
     {
@@ -16,6 +17,7 @@
       "email": "renataquintana@gmail.com",
       "password": "asasd",
       "isAdmin": "true",
+      "teacher": "false",
       "id": "3"
     },
     {
@@ -25,6 +27,7 @@
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
       "password": "",
+      "teacher": "false",
       "isAdmin": "false"
     },
     {
@@ -34,6 +37,7 @@
       "email": "ali.gonzalezq@duocuc.cl",
       "password": "xdxdxd",
       "isAdmin": "true",
+      "teacher": "false",
       "id": "mG8Vg_3"
     },
     {
@@ -43,6 +47,7 @@
       "email": "federia@duroc.cl",
       "password": "holamundo",
       "isAdmin": "true",
+      "teacher": "false",
       "id": "pxfqxhC"
     },
     {
@@ -52,6 +57,7 @@
       "email": "lh.espinoza@duocuc.cl",
       "password": "Abcdef123456",
       "isAdmin": "true",
+      "teacher": "false",
       "id": "1bCC-Rz"
     },
     {
@@ -61,7 +67,18 @@
       "email": "fran.calderon@duocuc.cl",
       "password": "123123",
       "isAdmin": "true",
+      "teacher": "false",
       "id": "KJzhpX3"
+    },
+    {
+      "name": "Fabian",
+      "suname": "Carvacho",
+      "username": "fabi.carvacho",
+      "email": "fabi.carvacho@profesor.duoc.cl",
+      "password": "Abcdef123456",
+      "isAdmin": "false",
+      "teacher": "true",
+      "id": "aQANNzE"
     }
   ]
 }

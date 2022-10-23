@@ -40,7 +40,8 @@ export class AuthService {
               username:(filtrado[0].username),
               email:(filtrado[0].email),
               isAdmin:(filtrado[0].isAdmin),
-              id:(filtrado[0].id)
+              id:(filtrado[0].id),
+              teacher:(filtrado[0].teacher)
             }
             this.dataToPage(this.objt);
           }

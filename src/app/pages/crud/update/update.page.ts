@@ -42,6 +42,7 @@ export class UpdatePage implements OnInit {
       email: [''],
       password: [''],
       isAdmin: [''],
+      teacher: [''],
     })
   }
 
@@ -54,6 +55,7 @@ export class UpdatePage implements OnInit {
         email: data['email'],
         password: data['password'],
         isAdmin: data['isAdmin'],
+        teacher: data['teacher'],
       });
     });
   }

@@ -12,6 +12,7 @@ export class User {
   email: string;
   password: string;
   isAdmin: string;
+  teacher: string;
 }
 
 @Injectable({

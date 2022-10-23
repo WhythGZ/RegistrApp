@@ -54,6 +54,23 @@
         </ion-radio-group>
       </ion-list>
 
+      <ion-list>
+        <ion-label position="floating">¿Es Profesor?</ion-label>
+        <ion-radio-group formControlName="teacher" required>
+          
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="end" value="true"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="end" value="false"></ion-radio>
+          </ion-item>
+        
+        </ion-radio-group>
+      </ion-list>
+
       <ion-row>
         <ion-col>
           <ion-button (click)="dataToPage()" type="submit" color="success" expand="block">Update</ion-button>

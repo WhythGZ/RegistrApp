@@ -25,6 +25,7 @@ export class CreatePage implements OnInit {
     email: '',
     password: '',
     isAdmin: '',
+    teacher: '',
   }
 
   constructor(
@@ -44,6 +45,7 @@ export class CreatePage implements OnInit {
                   email: [''],
                   password: [''],
                   isAdmin: [''],
+                  teacher: [''],
                 })
                 this.activeRoute.queryParams.subscribe(paramas => {
                   if (this.router.getCurrentNavigation().extras.state) {
