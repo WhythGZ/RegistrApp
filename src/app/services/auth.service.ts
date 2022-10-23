@@ -70,13 +70,4 @@ export class AuthService {
       return false;
     }
   }
-
-  validateAdmin(data){
-    if (data !== undefined && data.isAdmin == true){
-      return false;
-    }
-    else{
-      this.router.navigate(['signin']);
-    }
-  }
 }

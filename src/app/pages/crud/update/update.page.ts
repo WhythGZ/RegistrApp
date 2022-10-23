@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { UserCrudService } from '../../../services/user-crud.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update',
@@ -16,6 +17,7 @@ export class UpdatePage implements OnInit {
   id: any;
 
   constructor(
+    private auth: AuthService,
     private activeRoute: ActivatedRoute,
     private userCrudService: UserCrudService,
     private activatedRoute: ActivatedRoute,
@@ -31,6 +33,7 @@ export class UpdatePage implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.validate(this.data);
     this.fetchUser(this.id);
     this.updateUserFg = this.formBuilder.group({
       name: [''],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserCrudService } from '../../../services/user-crud.service';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ListPage implements OnInit {
   Users: any = [];
 
   constructor(
+    private auth: AuthService,
     private activeRoute: ActivatedRoute,
     private userCrudService: UserCrudService,
     private router: Router
@@ -26,7 +28,7 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.auth.validate(this.data);
   }
 
   ionViewDidEnter() {

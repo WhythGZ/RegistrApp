@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { User, UserCrudService } from '../../../services/user-crud.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create',
@@ -27,6 +28,7 @@ export class CreatePage implements OnInit {
   }
 
   constructor(
+               private auth: AuthService,
                private activeRoute: ActivatedRoute,
                private router: Router,
                private toastController: ToastController, 
@@ -91,6 +93,7 @@ export class CreatePage implements OnInit {
     }
   }
   ngOnInit() {
+    this.auth.validate(this.data);
   }
 
     onSubmit(){
