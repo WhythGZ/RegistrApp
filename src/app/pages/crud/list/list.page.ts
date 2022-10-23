@@ -37,13 +37,13 @@ export class ListPage implements OnInit {
     })
   }
 
-  dataToEdit(){
+  dataToEdit(id){
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.data
       }
     };
-    this.router.navigate(['update/'+this.data.id], navigationExtras)
+    this.router.navigate(['update/'+id], navigationExtras)
   }
 
   dataToPageHome() {

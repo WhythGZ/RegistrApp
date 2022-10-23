@@ -33,7 +33,6 @@ export class UpdatePage implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.validate(this.data);
     this.fetchUser(this.id);
     this.updateUserFg = this.formBuilder.group({
       name: [''],

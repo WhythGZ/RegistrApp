@@ -37,7 +37,7 @@
         </ion-input>
       </ion-item>
 
-      <ion-list>
+      <ion-list *ngIf="data.isAdmin == 'true';">
         <ion-label position="floating">¿Es Admin?</ion-label>
         <ion-radio-group formControlName="isAdmin" required>
           

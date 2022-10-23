@@ -26,7 +26,7 @@
       "suname": "Morales",
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
-      "password": "asdasdasd",
+      "password": "",
       "teacher": "false",
       "isAdmin": "false"
     },
@@ -39,16 +39,6 @@
       "isAdmin": "true",
       "teacher": "false",
       "id": "mG8Vg_3"
-    },
-    {
-      "name": "federico",
-      "suname": "santa maria",
-      "username": "federia",
-      "email": "federia@duroc.cl",
-      "password": "holamundo",
-      "isAdmin": "true",
-      "teacher": "false",
-      "id": "pxfqxhC"
     },
     {
       "name": "Lhian Adolfo",

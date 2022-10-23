@@ -18,7 +18,7 @@
       </ion-label>
 
       <div class="item-note" item-end>
-        <button ion-button (click)="dataToEdit()" clear [routerLink]="['/update/', user.id]">
+        <button ion-button clear (click)="dataToEdit(user.id)" [routerLink]="['/update/', user.id]">
           <ion-icon name="create" style="zoom:1.5" ></ion-icon>
         </button>
         <button ion-button clear (click)="removeUser(user)">

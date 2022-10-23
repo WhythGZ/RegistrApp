@@ -44,7 +44,7 @@ export class AuthService {
           console.log("El correo no existe");
         }
         else{
-          if (filtrado[0].password === password){
+          if (filtrado[0].password == password){
             valid = true;
             console.log("Las credenciales coinciden")
             this.USER = filtrado[0].email;
