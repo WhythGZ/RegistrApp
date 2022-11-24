@@ -1,6 +1,7 @@
 {
   "usuarios": [
     {
+      "rut": "21092123-4",
       "name": "Nancy",
       "suname": "Osorio",
       "username": "NancyOsorioOOO",
@@ -11,6 +12,7 @@
       "id": "2"
     },
     {
+      "rut": "20061223-K",
       "name": "Renata",
       "suname": "Quintana",
       "username": "RenataQuintana",
@@ -21,16 +23,18 @@
       "id": "3"
     },
     {
-      "id": "4",
+      "rut": "16897321-6",
       "name": "David",
       "suname": "Morales",
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
       "password": "",
       "teacher": "false",
-      "isAdmin": "false"
+      "isAdmin": "false",
+      "id": "4"
     },
     {
+      "rut": "21912942-1",
       "name": "Alister",
       "suname": "Gonzalez",
       "username": "Whyth",
@@ -41,6 +45,7 @@
       "id": "mG8Vg_3"
     },
     {
+      "rut": "20123321-0",
       "name": "Lhian Adolfo",
       "suname": "Espinoza Bravo",
       "username": "lh.espinoza",
@@ -51,6 +56,7 @@
       "id": "1bCC-Rz"
     },
     {
+      "rut": "13543785-7",
       "name": "Francisco",
       "suname": "Calderon",
       "username": "Cridboss",
@@ -61,6 +67,7 @@
       "id": "KJzhpX3"
     },
     {
+      "rut": "15535987-0",
       "name": "Fabian",
       "suname": "Carvacho",
       "username": "fabi.carvacho",

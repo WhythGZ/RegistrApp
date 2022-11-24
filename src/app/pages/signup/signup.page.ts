@@ -1,7 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
+import { UserCrudService } from 'src/app/services/user-crud.service';
   
 
 @Component({
@@ -11,8 +13,11 @@ import { Animation, AnimationController } from '@ionic/angular';
 })
 export class SignupPage implements OnInit {
 
+  userForm: FormGroup;
+
   @ViewChild('button',{read:ElementRef})button:ElementRef;
   usuario = {
+    rut: '',
     name: '',
     suname: '',
     username: '',
@@ -20,7 +25,8 @@ export class SignupPage implements OnInit {
     email: '',
   }
 
-  constructor(private router: Router, private toastController: ToastController, private animationCtrl: AnimationController) { }
+
+  constructor(private router: Router, private toastController: ToastController, private animationCtrl: AnimationController, private formBuilder: FormBuilder, private zone: NgZone, private userCrudService: UserCrudService) { }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message, icon){
     const toast = await this.toastController.create({
@@ -45,17 +51,32 @@ export class SignupPage implements OnInit {
       { offset: 1, transform: 'scale(1)', opacity: '1' }
     ]);
     await animation.play();
-    const flag = document.getElementById('form').textContent;
-    if (flag === 'true'){
-      this.presentToast('bottom', 'Verifique su email', 'mail-sharp');
-    }
-    else{
-      this.presentToast('bottom', 'Debe rellenar los campos', 'alert-circle-sharp');
-    }
-}
 
+}
 
   ngOnInit() {
   }
 
+  onSubmit(){
+    if(!this.userForm.valid){
+      this.presentToast('bottom', 'Debe rellenar los campos', 'alert-circle-sharp');
+      return false;
+    }
+    else{
+      const flag = document.getElementById('form').textContent;
+      if (flag === 'true'){
+        this.userCrudService.createUser(this.userForm.value)
+        .subscribe((response) => {
+          this.zone.run(() => {
+            this.userForm.reset();
+            this.presentToast('bottom', 'Registrado correctamente', 'checkmark-circle-outline');
+            this.router.navigate(['/list']);
+          })
+        })
+      }
+      else{
+        this.presentToast('bottom', 'Debe rellenar los campos', 'alert-circle-sharp');
+      }
+    }
+  }
 }
