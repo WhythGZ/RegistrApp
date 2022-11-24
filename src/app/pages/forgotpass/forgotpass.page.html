@@ -9,42 +9,34 @@
 <ion-app class="container">
   <ion-content>
     <br><br><br><br>
-      <ion-grid fixed="true">
-        <ion-row>
-          <ion-col size="12">
-            <ion-card>
-              <form #formulario="ngForm">
-                <div class="m-100 h-100 pt-5 bg-light">
-                  <ion-card-header>
-                    <div hidden id="form">{{formulario.valid}}</div>
-                      <div class="p-5">
-                        <img src="./././assets/images/logo.png" width="250" class="rounded mx-auto d-block" alt="">
-                      </div>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <div class="col-12 border-bottom border-secondary p-5">
-                      <div class="body">
-                        <div class="form">
-                        <input name="username" [(ngModel)]="usuario" type="text" required>
-                          <label class="lbl-nombre"><span class="text-nomb">Usuario</span></label>
-                        </div>   
-                      </div>
-                      <div class="d-flex justify-content-center">
-                        <button #button (click)="validarForm()" [disabled]="formulario.invalid" expand="block" type="submit" class="shadow-lg border btn btn-warning p-2 mt-4 mt-3 col-5"><span class="text-center text-white fw-bold">RESTABLECER</span></button>
-                      </div>
-                    </div>
-                    <div class="p-5 mb-5">
-                      <span class="text-center d-block">¿Ya tienes una cuenta?:</span>
-                      <a routerLink="/signin"><span class="d-block justify-content-center text-center text-decoration-underline">Inicia Sesion</span></a>
-                    </div>
-                  </ion-card-content>
-                </div>
-              </form>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
+    <ion-grid fixed="true">
+      <ion-row>
+        <ion-col size="12">
+          <ion-card class="p-5">
+            <img src="./././assets/images/logo.png" width="250" class="m-5 rounded mx-auto d-block" alt="">
+  
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input placeholder="Ingrese el Email" formControlName="email" type="text" required>
+                </ion-input>
+              </ion-item>
+              
+              <div class="d-flex justify-content-center mt-4">
+                <a routerLink="/signin"><span class="text-center text-decoration-underline">Ya tengo una cuenta</span></a>
+              </div>
+              <ion-row>
+                <ion-col>
+                  <ion-button type="submit" color="warning" class="mb-5" expand="block">Crear Usuario</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-app>
 
 
