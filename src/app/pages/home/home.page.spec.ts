@@ -8,12 +8,15 @@ import { HomePage } from './home.page';
 describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
+  const fakeActivatedRoute = {
+    snapshot: { data: {} }
+  } as ActivatedRoute;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      providers: [ActivatedRoute],
-      imports: [IonicModule.forRoot(), HttpClientTestingModule, RouterTestingModule ]
+      imports: [IonicModule.forRoot(), HttpClientTestingModule, RouterTestingModule],
+      providers: [ {provide: ActivatedRoute, useValue: fakeActivatedRoute} ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
