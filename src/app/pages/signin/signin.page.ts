@@ -1,9 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-<<<<<<< HEAD
+
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
-=======
-import { NavigationExtras, Router } from '@angular/router';
->>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
+
 import { ToastController } from '@ionic/angular';
 import { FormsModule, ControlContainer, NgForm, NgModel } from '@angular/forms'
 import { Animation, AnimationController } from '@ionic/angular';
