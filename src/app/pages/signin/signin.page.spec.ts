@@ -18,7 +18,7 @@ describe('SigninPage', () => {
     fixture.detectChanges();
   }));
 
-  it('CONFIRMAREMOS SI LA PAGINA TIENE FUNCIONANDO LOS FORMULARIOS CORRECTAMENTE', () => {
-    
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

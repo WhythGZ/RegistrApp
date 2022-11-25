@@ -55,7 +55,7 @@ export class ListPage implements OnInit {
     this.router.navigate(['home'], navigationExtras)
   }
 
-  removeUser(user) {
+  removeUser(user, i) {
     if (window.confirm('Estas seguro?')) {
       this.userCrudService.deleteUser(user.id)
       .subscribe(() => {

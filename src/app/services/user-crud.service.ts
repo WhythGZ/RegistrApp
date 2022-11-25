@@ -6,7 +6,6 @@ import { catchError, tap } from 'rxjs/operators';
 
 export class User {
   _id: number;
-  rut: string;
   name: string;
   suname: string;
   username: string;

@@ -10,11 +10,6 @@
     <form [formGroup]="updateUserFg" (ngSubmit)="onSubmit()">
       
       <ion-item>
-        <ion-label position="floating">Rut</ion-label>
-        <ion-input formControlName="rut" type="text" required></ion-input>
-      </ion-item>
-
-      <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input formControlName="name" type="text" required></ion-input>
       </ion-item>
@@ -28,7 +23,7 @@
         <ion-label position="floating">Username</ion-label>
         <ion-input formControlName="username" type="text" required>
         </ion-input>
-      </ion-item>
+      </ion-item>      
 
       <ion-item>
         <ion-label position="floating">Email</ion-label>
@@ -78,7 +73,7 @@
 
       <ion-row>
         <ion-col>
-          <ion-button type="submit" color="success" expand="block">Update</ion-button>
+          <ion-button (click)="dataToPage()" type="submit" color="success" expand="block">Update</ion-button>
         </ion-col>
       </ion-row>
       

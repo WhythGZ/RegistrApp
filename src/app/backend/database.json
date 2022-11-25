@@ -1,7 +1,6 @@
 {
   "usuarios": [
     {
-      "rut": "21092123-4",
       "name": "Nancy",
       "suname": "Osorio",
       "username": "NancyOsorioOOO",
@@ -12,7 +11,6 @@
       "id": "2"
     },
     {
-      "rut": "20061223-K",
       "name": "Renata",
       "suname": "Quintana",
       "username": "RenataQuintana",
@@ -23,18 +21,16 @@
       "id": "3"
     },
     {
-      "rut": "16897321-6",
+      "id": "4",
       "name": "David",
       "suname": "Morales",
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
       "password": "",
       "teacher": "false",
-      "isAdmin": "false",
-      "id": "4"
+      "isAdmin": "false"
     },
     {
-      "rut": "21012942-1",
       "name": "Alister",
       "suname": "Gonzalez",
       "username": "Whyth",
@@ -45,7 +41,6 @@
       "id": "mG8Vg_3"
     },
     {
-      "rut": "20123321-0",
       "name": "Lhian Adolfo",
       "suname": "Espinoza Bravo",
       "username": "lh.espinoza",
@@ -56,7 +51,6 @@
       "id": "1bCC-Rz"
     },
     {
-      "rut": "13543785-7",
       "name": "Francisco",
       "suname": "Calderon",
       "username": "Cridboss",
@@ -67,7 +61,6 @@
       "id": "KJzhpX3"
     },
     {
-      "rut": "15535987-0",
       "name": "Fabian",
       "suname": "Carvacho",
       "username": "fabi.carvacho",
@@ -76,71 +69,6 @@
       "isAdmin": "false",
       "teacher": "true",
       "id": "aQANNzE"
-    },
-    {
-      "name": "Magdalena",
-      "suname": "Nieto",
-      "username": "magdl.nieto",
-      "email": "m.nieto@profesor.duoc.cl",
-      "password": "654321 fedcba",
-      "isAdmin": "false",
-      "teacher": "true",
-      "id": "CnsF2s"
-    }
-  ],
-  "ramos": [
-    {
-      "id": 1,
-      "class_name": "calidad de software",
-      "teacher_id": "CnsF2s"
-    },
-    {
-      "id": 2,
-      "class_name": "Programacion de aplicaciones moviles",
-      "teacher_id": "aQANNzE"
-    },
-    {
-      "id": 3,
-      "class_name": "Programacion de Bases de datos",
-      "teacher_id": "aQANNzE"
-    },
-    {
-      "id": 4,
-      "class_name": "Ingenieria de software",
-      "teacher_id": "CnsF2s"
-    }
-  ],
-  "Clases": [
-    {
-      "id": 1,
-      "ramo_id": 1,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "1bCC-Rz"
-      ],
-      "disponible": true
-    },
-    {
-      "id": 2,
-      "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "3"
-      ],
-      "disponible": true
-    },
-    {
-      "id": 2,
-      "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "2",
-        "4"
-      ],
-      "disponible": true
     }
   ]
 }
