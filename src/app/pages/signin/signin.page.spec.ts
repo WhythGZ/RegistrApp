@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SigninPage } from './signin.page';
@@ -10,7 +12,7 @@ describe('SigninPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SigninPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), HttpClientModule, FormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SigninPage);
