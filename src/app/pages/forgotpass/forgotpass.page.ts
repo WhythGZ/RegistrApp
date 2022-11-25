@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 >>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
 import { Animation, AnimationController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgotpass',
