@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ForgotpassPageRoutingModule } from './forgotpass-routing.module';
@@ -13,7 +13,8 @@ import { ForgotpassPage } from './forgotpass.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ForgotpassPageRoutingModule
+    ForgotpassPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ForgotpassPage]
 })

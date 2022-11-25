@@ -1,7 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { Animation, AnimationController } from '@ionic/angular';
+<<<<<<< HEAD
+import { NgForm } from '@angular/forms';
 
+=======
+import { FormBuilder, FormGroup } from '@angular/forms';
+>>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
+import { Animation, AnimationController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgotpass',
@@ -11,9 +17,35 @@ import { Animation, AnimationController } from '@ionic/angular';
 export class ForgotpassPage implements OnInit {
   @ViewChild('button',{read:ElementRef})button:ElementRef;
 
-  usuario = '';
+  usuario = {
+    email: ''
+  };
 
-  constructor(private toastController: ToastController, private animationCtrl: AnimationController) { }
+<<<<<<< HEAD
+  constructor(private toastController: ToastController, private animationCtrl: AnimationController, private ngform : NgForm) { }
+=======
+  userForm: FormGroup;
+
+  constructor(private toastController: ToastController, 
+              private animationCtrl: AnimationController,
+              private formBuilder: FormBuilder,
+              private alertController: AlertController,
+              ) {
+                this.userForm = this.formBuilder.group({
+                  email: [''],
+                })
+              }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Lo sentimos, esta opcion esta deshabilitada por el momento.',
+      subHeader: 'Intentelo nuevamente mas tarde.',
+      buttons: ['Aceptar'],
+    });
+
+    await alert.present();
+  }
+>>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message, icon){
     const toast = await this.toastController.create({
@@ -39,13 +71,33 @@ export class ForgotpassPage implements OnInit {
   await animation.play();
     const flag = document.getElementById('form').textContent;
     if (flag === 'true'){
-      this.presentToast('bottom','Instrucciones enviadas a su correo electronico','mail-sharp');
+      this.presentAlert();
     }
     else{
-      this.presentToast('bottom','Debe rellenar los campos','alert-circle-sharp');
+      this.presentToast('bottom','Debe rellenar el campo','alert-circle-sharp');
     }
   }
   ngOnInit() {
+  }
+  
+  onSubmit(){
+
+    const expression: RegExp = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+
+    if(!this.userForm.valid){
+      this.presentToast('bottom', 'Debe rellenar el campo', 'alert-circle-sharp');
+      return false;
+    }
+    else{
+      let email = this.userForm.value['email'];
+      if (!expression.test(email)){
+        this.presentToast('bottom', 'El Email es invalido', 'alert-circle-sharp');
+        return false;
+      }
+      else{
+        this.presentAlert();
+      }
+    }
   }
 
 }

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserCrudService } from './user-crud.service';
-import { async } from '@angular/core/testing';
 import { ToastController } from '@ionic/angular';
 
 @Injectable({
@@ -23,12 +22,12 @@ export class AuthService {
     private userCrudService: UserCrudService,
     private router: Router) { }
 
-    async presentToast(message, position: 'top' | 'middle' | 'bottom'){
+    async presentToast(message, position: 'top' | 'middle' | 'bottom' , icon){
       const toast = await this.toastController.create({
         message,
         duration: 1500,
         position,
-        icon: 'alert-circle-sharp'
+        icon: icon
       });
   
       await toast.present();
@@ -39,16 +38,13 @@ export class AuthService {
       await this.userCrudService.getUsers().subscribe((response) => {
         this.Users = response
         let filtrado = this.Users.filter(obj => obj.email == email);
-        if (filtrado.length == 0){
-          this.presentToast("El correo no existe", "bottom");
-          console.log("El correo no existe");
-        }
-        else{
+        if (filtrado.length != 0){
           if (filtrado[0].password == password){
             valid = true;
-            console.log("Las credenciales coinciden")
+            this.presentToast('Credenciales correctas', 'bottom', 'checkmark-circle-outline');
             this.USER = filtrado[0].email;
             this.objt = {
+              rut: (filtrado[0].rut),
               name: (filtrado[0].name),
               pass: (filtrado[0].password),
               suname:(filtrado[0].suname),
@@ -61,7 +57,7 @@ export class AuthService {
             this.dataToPage(this.objt);
           }
           else{
-            this.presentToast("Las credenciales no coinciden", "bottom")
+            this.presentToast("Las credenciales no coinciden", "bottom", 'alert-circle-sharp')
           }
         }
       }
