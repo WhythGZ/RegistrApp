@@ -13,35 +13,43 @@
   <ion-grid fixed="true">
     <ion-row>
       <ion-col size="12">
-        <ion-card>
+        <ion-card class="p-5">
           <img src="./././assets/images/logo.png" width="250" class="m-5 rounded mx-auto d-block" alt="">
+
           <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            
+            <ion-item>
+              <ion-label position="floating">Rut</ion-label>
+              <ion-input placeholder="Ingrese el rut (xxxxxxxx-x)" formControlName="rut" type="text" required></ion-input>
+            </ion-item>
+
+
             <ion-item>
               <ion-label position="floating">Nombre</ion-label>
-              <ion-input formControlName="name" type="text" required></ion-input>
+              <ion-input placeholder="Ingrese el Nombre"  formControlName="name" type="text" required></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Apellido</ion-label>
-              <ion-input formControlName="suname" type="text" required>
+              <ion-input placeholder="Ingrese el Apellido"  formControlName="suname" type="text" required>
               </ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Username</ion-label>
-              <ion-input formControlName="username" type="text" required>
+              <ion-input placeholder="Ingrese el Nombre de Usuario"  formControlName="username" type="text" required>
               </ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input formControlName="email" type="text" required>
+              <ion-input placeholder="Ingrese el Email"  formControlName="email" type="text" required>
               </ion-input>
             </ion-item>
       
             <ion-item>
               <ion-label position="floating">Contraseña</ion-label>
-              <ion-input formControlName="password" type="password" required>
+              <ion-input placeholder="Ingrese la contraseña"  formControlName="password" type="password" required>
               </ion-input>
             </ion-item>
       
@@ -78,8 +86,6 @@
               
               </ion-radio-group>
             </ion-list>
-
-
 
             <ion-row>
               <ion-col>

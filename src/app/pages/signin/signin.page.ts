@@ -1,10 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { NavigationExtras, Router, RouterLink } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { updateShorthandPropertyAssignment } from 'typescript';
 
 
 @Component({
@@ -25,12 +23,12 @@ export class SigninPage implements OnInit {
 
   constructor(private auth: AuthService, private toastController: ToastController, private router: Router,private animationCtrl: AnimationController) {}
 
-  async presentToast(message, position: 'top' | 'middle' | 'bottom'){
+  async presentToast(message, position: 'top' | 'middle' | 'bottom', icon){
     const toast = await this.toastController.create({
       message,
       duration: 1500,
       position,
-      icon: 'alert-circle-sharp'
+      icon: icon
     });
 
     await toast.present();
@@ -47,14 +45,6 @@ export class SigninPage implements OnInit {
       { offset: 1, transform: 'scale(1)', opacity: '1' }
     ]);
   await animation.play();
-    const flag = document.getElementById('form').textContent;
-    if (flag === 'true'){
-      this.auth.auth(this.usuario.email, this.usuario.password)
-    }
-    else{
-      this.presentToast('Debe rellenar los campos', 'bottom');
-    }
-
   }
 
   dataToPage(data){
@@ -70,4 +60,23 @@ export class SigninPage implements OnInit {
     // console.clear()
   }
 
+  onSubmit(){
+
+    const expression: RegExp = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+    const email: string = this.usuario.email;
+    const result: boolean = expression.test(email);
+
+    if (!result){
+      this.presentToast('Correo invalido', 'bottom', 'alert-circle-sharp');
+    }
+    else if (this.usuario.password.length < 6){
+      this.presentToast('Contraseña invalida', 'bottom', 'alert-circle-sharp');
+    }
+    else{
+       let flag = this.auth.auth(this.usuario.email, this.usuario.password);
+       if (flag){
+        this.presentToast('Credenciales invalidas', 'bottom', 'alert-circle-sharp');
+       }
+    }
+  }
 }
