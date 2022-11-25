@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
@@ -10,7 +9,7 @@ describe('AuthService', () => {
     service = TestBed.inject(AuthService);
   });
 
-  it('should be created', () => {
+  it('EL SERVICIO DE AUTH DEBERIA EXISTIR Y/O SER CREADO', () => {
     expect(service).toBeTruthy();
   });
 });

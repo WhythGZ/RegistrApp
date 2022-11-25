@@ -1,13 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-<<<<<<< HEAD
-import { NgForm } from '@angular/forms';
-
-=======
 import { FormBuilder, FormGroup } from '@angular/forms';
->>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
 import { Animation, AnimationController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgotpass',
@@ -21,9 +16,6 @@ export class ForgotpassPage implements OnInit {
     email: ''
   };
 
-<<<<<<< HEAD
-  constructor(private toastController: ToastController, private animationCtrl: AnimationController, private ngform : NgForm) { }
-=======
   userForm: FormGroup;
 
   constructor(private toastController: ToastController, 
@@ -45,7 +37,6 @@ export class ForgotpassPage implements OnInit {
 
     await alert.present();
   }
->>>>>>> 4ed616c192ab6cc24f578f8c87e40ee2f00b5325
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message, icon){
     const toast = await this.toastController.create({

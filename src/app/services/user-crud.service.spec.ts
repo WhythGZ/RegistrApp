@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { UserCrudService } from './user-crud.service';
 
-describe('UserCrudService', () => {
+describe('USERCRUDSERVICE =>', () => {
   let service: UserCrudService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('UserCrudService', () => {
     service = TestBed.inject(UserCrudService);
   });
 
-  it('should be created', () => {
+  it('EL SERVICIO DEBE EXISTIR', () => {
     expect(service).toBeTruthy();
   });
 });
