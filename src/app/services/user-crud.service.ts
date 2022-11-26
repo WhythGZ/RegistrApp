@@ -20,7 +20,7 @@ export class User {
   providedIn: 'root'
 })
 export class UserCrudService {
-
+  Users: any = [];
   endpoint = 'http://localhost:3000/usuarios';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -33,6 +33,88 @@ export class UserCrudService {
       catchError(this.handleError<User>('Error occured'))
     );
   }
+
+  validaRut(rutCompleto:any) {
+    rutCompleto = rutCompleto.replace("‐","-");
+    if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+      return false;
+    var tmp 	= rutCompleto.split('-');
+    var digv	= tmp[1]; 
+    var rut 	= tmp[0];
+    if ( digv == 'K' ) digv = 'k' ;
+    
+    return (this.dv(rut) == digv );
+  }
+
+  dv (T:any){
+    var M=0,S=1;
+    for(;T;T=Math.floor(T/10))
+      S=(S+T%10*(9-M++%6))%11;
+    return S?S-1:'k';
+  }
+
+  checkData(rut, name, suname, username, email, password){
+    const expression: RegExp = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+
+        //validar rut
+        if (rut.length!=10 || !this.validaRut(rut)){
+          return false;
+        }
+
+        //validar nombre
+        else if (name.length<3){
+          return false;
+        }
+
+        //validar apellido
+        else if (suname.length<4){
+          return false;
+        }
+
+        //validar username
+        else if (username.length<5){
+          return false;
+        }
+
+        //validar email bien escrito
+        
+        else if (!expression.test(email)){
+          return false;
+        }
+
+        //validar password
+        else if (password.length<6){
+          return false;
+        }
+
+         //validar que el email, rut y username no se repitan
+        else{   
+        this.getUsers().subscribe((response) => {
+          this.Users = response
+          let emailFilter = this.Users.filter(obj => obj.email === email);
+          let rutFilter = this.Users.filter(obj => obj.rut === rut);
+          let usernameFilter = this.Users.filter(obj => obj.username === username);
+            // validar email repetido
+            if (emailFilter.length != 0){
+              return false;
+            }
+            // validar rut repetido
+            else if (rutFilter != 0){
+              return false;
+            }
+            // validar username repetido
+            else if(usernameFilter != 0){
+              return false;
+            }
+            //crear usuario
+            else{
+              return true;
+            }
+          }
+        )
+    }
+  }
+
 //esta funcion nos ayuda a mostrar el registro que nostros pedimos
   getUser(id): Observable<User[]> {
     return this.httpClient.get<User[]>(this.endpoint + '/' + id)
