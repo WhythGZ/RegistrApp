@@ -168,17 +168,17 @@ export class UpdatePage implements OnInit {
           let rutFilter = this.Users.filter(obj => obj.rut === rut);
           let usernameFilter = this.Users.filter(obj => obj.username === username);
             // validar email repetido
-            if (emailFilter.length != 0){
+            if (emailFilter.length != 0 && email != email){
               this.presentToast('bottom', 'Ya existe una cuenta registrada con este email', 'alert-circle-sharp');
               return false;
             }
             // validar rut repetido
-            else if (rutFilter != 0){
+            else if (rutFilter != 0 && rut!=rut){
               this.presentToast('bottom', 'Ya existe una cuenta registrada con este rut', 'alert-circle-sharp');
               return false;
             }
             // validar username repetido
-            else if(usernameFilter != 0){
+            else if(usernameFilter != 0 && username != username){
               this.presentToast('bottom', 'El nombre de usuario esta ocupado', 'alert-circle-sharp');
               return false;
             }

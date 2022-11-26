@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute, NavigationExtras, Router, Routes } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
 

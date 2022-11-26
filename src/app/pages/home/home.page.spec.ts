@@ -10,7 +10,7 @@ describe('HomePage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot(), HttpClientModule]
+      imports: [IonicModule.forRoot(), HttpClientModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
