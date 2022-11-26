@@ -76,6 +76,71 @@
       "isAdmin": "false",
       "teacher": "true",
       "id": "aQANNzE"
+    },
+    {
+      "name": "Magdalena",
+      "suname": "Nieto",
+      "username": "magdl.nieto",
+      "email": "m.nieto@profesor.duoc.cl",
+      "password": "654321 fedcba",
+      "isAdmin": "false",
+      "teacher": "true",
+      "id": "CnsF2s"
+    }
+  ],
+  "ramos": [
+    {
+      "id": 1,
+      "class_name": "calidad de software",
+      "teacher_id": "CnsF2s"
+    },
+    {
+      "id": 2,
+      "class_name": "Programacion de aplicaciones moviles",
+      "teacher_id": "aQANNzE"
+    },
+    {
+      "id": 3,
+      "class_name": "Programacion de Bases de datos",
+      "teacher_id": "aQANNzE"
+    },
+    {
+      "id": 4,
+      "class_name": "Ingenieria de software",
+      "teacher_id": "CnsF2s"
+    }
+  ],
+  "Clases": [
+    {
+      "id": 1,
+      "ramo_id": 1,
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "1bCC-Rz"
+      ],
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "ramo_id": 3,
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "3"
+      ],
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "ramo_id": 3,
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "2",
+        "4"
+      ],
+      "disponible": true
     }
   ]
 }

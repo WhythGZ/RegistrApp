@@ -19,6 +19,7 @@ describe('UserCrudService', () => {
   });
 
   it('register an user'), () => {
-    expect(service.checkData('21012946-4','Altair', 'Gonzalez', 'WhythGZ', 'alt.gonzalezq@duocuc.cl','duoc1234')).toBeTrue();
+    expect(service.checkData('21012946-4','Altair', 'Gonzalez', 'WhythGZ', 'alt.gonzalezq@duocuc.cl','duoc1234')).toBe(true);
   }
+
 });
