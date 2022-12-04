@@ -39,7 +39,15 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },  {
+    path: 'create',
+    loadChildren: () => import('./pages/crud-Class/create/create.module').then( m => m.CreatePageModule)
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/crud-Class/list/list.module').then( m => m.ListPageModule)
+  },
+
 
 ];
 

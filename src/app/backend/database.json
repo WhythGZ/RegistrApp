@@ -92,21 +92,25 @@
     {
       "id": 1,
       "class_name": "calidad de software",
+      "section":  "MAS_113",
       "teacher_id": "CnsF2s"
     },
     {
       "id": 2,
       "class_name": "Programacion de aplicaciones moviles",
+      "section":  "MEC_311",
       "teacher_id": "aQANNzE"
     },
     {
       "id": 3,
       "class_name": "Programacion de Bases de datos",
+      "section":  "REC_311",
       "teacher_id": "aQANNzE"
     },
     {
       "id": 4,
       "class_name": "Ingenieria de software",
+      "section":  "EXD_311",
       "teacher_id": "CnsF2s"
     }
   ],
