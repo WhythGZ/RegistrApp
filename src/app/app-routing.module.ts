@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'subupdate/:id',
     loadChildren: () => import('./pages/subject-crud/update/update.module').then( m => m.UpdatePageModule)
   },
+  {
+    path: 'qr',
+    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
+  },
 
 ];
 

@@ -82,6 +82,10 @@ export class CreatePage implements OnInit {
     await toast.present();
   }
 
+  genQR(){
+    console.log("generar qr")
+  }
+
   genForm(){
     if(!this.subjectFormRaw.valid){
       console.log('Debe rellenar los campos');
