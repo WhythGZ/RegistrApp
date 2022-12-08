@@ -4,42 +4,7 @@
     <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
 </ion-header>
 
-
-<ion-app>
-  <ion-tabs>
-
-
-    <ion-tab-bar slot="bottom">
-
-    <ion-tab-button tab="qr">
-      <ion-icon name="scan-outline"></ion-icon>
-      <ion-label>Scan QR</ion-label>
-    </ion-tab-button>
-    
-    <ion-tab-button (click)="dataToPage()">
-      <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Perfil</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="asistencia">
-      <ion-icon name="book-outline"></ion-icon>
-      <ion-label>Asistencia</ion-label>
-    </ion-tab-button>  
-
-
-        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageList()" routerLinkActive="tab-selected" routerLink="/list">
-          <ion-icon name="list-outline"></ion-icon>
-          <ion-label>Lista de Usuarios</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageCreate()" routerLinkActive="tab-selected" routerLink="/create">
-          <ion-icon name="person-outline"></ion-icon>
-          <ion-label>Añadir un usuario</ion-label>
-        </ion-tab-button>
-
-
-    </ion-tab-bar>
-
+  <ion-content>
     <ion-menu side="end" content-id="main-content">
       <ion-header>
         <ion-toolbar translucent>
@@ -76,6 +41,40 @@
         </ion-toolbar>
       </ion-header>
     </div>
-  
-  </ion-tabs>
-</ion-app>
+</ion-content>
+<ion-footer>
+<ion-toolbar>
+<ion-tabs>
+<ion-tab-bar slot="bottom">
+  <ion-tab-button *ngIf="data.teacher === 'true';" (click)="dataToPage('subcreate')" routerLinkActive="tab-selected" routerLink="/subcreate">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Crear Asignaturas</ion-label>
+  </ion-tab-button>
+    <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="openCamera()">
+      <ion-icon name="scan-outline"></ion-icon>
+      <ion-label>Scan QR</ion-label>
+    </ion-tab-button>
+  <ion-tab-button (click)="dataToPage('profile')">
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-label>Perfil</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.teacher !== 'true';" tab="asistencia">
+    <ion-icon name="book-outline"></ion-icon>
+    <ion-label>Asistencia</ion-label>
+  </ion-tab-button>  
+  <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPage('list')" routerLinkActive="tab-selected" routerLink="/list">
+    <ion-icon name="list-outline"></ion-icon>
+    <ion-label>Lista Usuarios</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPage('create')" routerLinkActive="tab-selected" routerLink="/create">
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-label>Añadir Usuario</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.teacher === 'true';" (click)="dataToPage('sublist')" routerLinkActive="tab-selected" routerLink="/sublist">
+    <ion-icon name="list-circle-outline"></ion-icon>
+    <ion-label>Listar Asignaturas</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+</ion-tabs>
+</ion-toolbar>
+</ion-footer>

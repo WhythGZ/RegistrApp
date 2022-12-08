@@ -2,6 +2,16 @@
   "usuarios": [
     {
       "rut": "21092123-4",
+      "asistencia":{
+        "MAT4140": [
+          "20-04-2022",
+          "23-04-2022"
+        ],
+        "PGY4121":[
+          "25-04-2022",
+          "26-04-2022"
+        ]
+      },
       "name": "Nancy",
       "suname": "Osorio",
       "username": "NancyOsorioOOO",
@@ -28,7 +38,7 @@
       "suname": "Morales",
       "username": "DavidMorales",
       "email": "davidmorales@gmail.com",
-      "password": "",
+      "password": "Abcdef123456",
       "teacher": "false",
       "isAdmin": "false",
       "id": "4"
@@ -88,59 +98,45 @@
       "id": "CnsF2s"
     }
   ],
-  "ramos": [
+  "subjects": [
     {
-      "id": 1,
-      "class_name": "calidad de software",
-      "teacher_id": "CnsF2s"
-    },
-    {
-      "id": 2,
-      "class_name": "Programacion de aplicaciones moviles",
-      "teacher_id": "aQANNzE"
-    },
-    {
-      "id": 3,
-      "class_name": "Programacion de Bases de datos",
-      "teacher_id": "aQANNzE"
-    },
-    {
-      "id": 4,
-      "class_name": "Ingenieria de software",
-      "teacher_id": "CnsF2s"
-    }
-  ],
-  "Clases": [
-    {
-      "id": 1,
-      "ramo_id": 1,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "1bCC-Rz"
+      "name": "Programacion Movil",
+      "teachersName": "Fabian Carvacho",
+      "code": "PGY4121",
+      "days": [
+        "Miercoles 08:31-10:40 205",
+        "Viernes 10:01-11:20 202"
       ],
-      "disponible": true
+      "id": "1"
     },
     {
-      "id": 2,
-      "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "3"
+      "name": "Arquitectura",
+      "teachersName": "Jose Pino",
+      "code": "ASY4131",
+      "days": [
+        "Jueves 08:31-10:40 201",
+        "Viernes 08:31-09:50 203"
       ],
-      "disponible": true
+      "id": "2"
     },
     {
-      "id": 2,
-      "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "2",
-        "4"
+      "name": "Calidad de Software",
+      "code": "CSY4111",
+      "teachersName": "Fabian Carvacho",
+      "days": [
+        "Lunes 08:31-11:20 202"
       ],
-      "disponible": true
+      "id": "M7D5vSG"
+    },
+    {
+      "name": "Estadistica Descriptiva",
+      "code": "MAT4140",
+      "teachersName": "Fabian Carvacho",
+      "days": [
+        "Lunes 11:31-12:50 208",
+        "Martes 08:31-09:50 204"
+      ],
+      "id": "Mbhpk5I"
     }
   ]
 }

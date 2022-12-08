@@ -33,7 +33,7 @@
         <p> Email: <strong>{{data.email}}</strong></p>
       </ion-item>
 
-      <ion-item>
+      <ion-item *ngIf="data.teacher === 'true';">
         <p> ¿Es Profesor?: <strong>{{data.teacher}}</strong></p>
       </ion-item>
 

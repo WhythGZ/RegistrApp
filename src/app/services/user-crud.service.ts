@@ -19,11 +19,13 @@ export class User {
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UserCrudService {
   Users: any = [];
-  endpoint = 'http://localhost:3000/usuarios';
+  endpoint = 'http://192.168.1.2:3000/usuarios';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
   constructor(private httpClient: HttpClient) { }
 //----------------------------crear usuario--------------------
@@ -128,7 +130,7 @@ export class UserCrudService {
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.endpoint)
       .pipe(
-        tap(users => console.log('Users retrieved!')),
+        tap(() => console.log('Users retrieved!')),
         catchError(this.handleError<User[]>('Get user', []))
       );
   }

@@ -39,6 +39,18 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'subcreate',
+    loadChildren: () => import('./pages/subject-crud/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'sublist',
+    loadChildren: () => import('./pages/subject-crud/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'subupdate',
+    loadChildren: () => import('./pages/subject-crud/update/update.module').then( m => m.UpdatePageModule)
+  },
 
 ];
 

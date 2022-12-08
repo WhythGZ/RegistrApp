@@ -59,8 +59,8 @@
         </ion-radio-group>
       </ion-list>
 
-      <ion-list>
-        <ion-label position="floating">¿Es Profesor?</ion-label>
+      <ion-list *ngIf="data.isAdmin == 'true';">
+        <ion-label  position="floating">¿Es Profesor?</ion-label>
         <ion-radio-group formControlName="teacher" required>
           
           <ion-item>

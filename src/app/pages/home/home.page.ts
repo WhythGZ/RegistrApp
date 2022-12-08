@@ -8,6 +8,9 @@ import { MenuController } from '@ionic/angular';
 
 import { AuthService } from 'src/app/services/auth.service';
 
+import { Camera, CameraResultType } from '@capacitor/camera';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -18,6 +21,7 @@ export class HomePage implements OnInit {
   handlerMessage = '';
   roleMessage = '';
   data: any;
+  code: any;
 
   constructor(private auth: AuthService, private activeRoute: ActivatedRoute, private router: Router ,private menu: MenuController, private alertController: AlertController) {
     this.activeRoute.queryParams.subscribe(paramas => {
@@ -27,31 +31,22 @@ export class HomePage implements OnInit {
     });
    }
 
-  dataToPage(){
-    let navigationExtras: NavigationExtras = {
-      state: {
-        user: this.data
-      }
-    };
-    this.router.navigate(['profile'], navigationExtras)
-  }
+   async openCamera(){
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.Uri
+      });
+      console.log(image);
+  };
 
-  dataToPageList() {
+  dataToPage(page:string){
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.data
       }
     };
-    this.router.navigate(['list'], navigationExtras)
-  }
-
-  dataToPageCreate() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        user: this.data
-      }
-    };
-    this.router.navigate(['create'], navigationExtras)
+    this.router.navigate([page], navigationExtras)
   }
 
   async presentAlert(header, message) {
