@@ -19,9 +19,17 @@ export class User {
   providedIn: 'root'
 })
 export class UserCrudService {
+<<<<<<< Updated upstream
   endpoint = 'http://localhost:3000/usuarios';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
+=======
+  Users: any = [];
+  endpoint = 'http://192.168.100.9:3000/usuarios';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  };
+>>>>>>> Stashed changes
   constructor(private httpClient: HttpClient) { }
   //----------------------------crear usuario--------------------
   createUser(user: User): Observable<any> {

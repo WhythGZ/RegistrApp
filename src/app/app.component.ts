@@ -9,5 +9,10 @@ import { RamosCrudService } from './services/ramos-crud.service';
 
 })
 export class AppComponent {
+<<<<<<< Updated upstream
   constructor(private authService : AuthService, ramoService: RamosCrudService) {}
+=======
+  
+  constructor() {}
+>>>>>>> Stashed changes
 }

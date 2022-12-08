@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>qr</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-card>
+      <h1>
+        Codigo QR de la Asignatura
+      </h1>
+    </ion-card>
+  </ion-row>
+    <ion-row class="ion-justify-content-center">
+
+
+      <ion-card class="bordebored">
+        <ngx-qrcode  [elementType]="elementType" [value]="value" cssClass="aclass" errorCorrectionLevel="L"></ngx-qrcode>
+      </ion-card>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-card>
+        <h1 style="color: aliceblue;">
+          Escanéalo antes de que termine la clase!
+        </h1>
+      </ion-card>
+    </ion-row>
+    <ion-footer class="patas" collapse="fade">
+      <ion-toolbar>
+        <ion-title id="titulofooter">DuocUC 2022 ©</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  
+</ion-content>
