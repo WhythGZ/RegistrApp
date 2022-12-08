@@ -50,7 +50,7 @@ export class ListPage implements OnInit {
   dataToPage(path: string) {
     let navigationExtras: NavigationExtras = {
       state: {
-        subject: this.data
+        user: this.data
       }
     };
     this.router.navigate([path], navigationExtras)
