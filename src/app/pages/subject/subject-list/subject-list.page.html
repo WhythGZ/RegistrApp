@@ -1,29 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>list</ion-title>
+    <ion-title>subject_list</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-fab horizontal="end" vertical="center" slot="fixed">
-    <ion-fab-button color="danger"(click)="irAHome()">
+    <ion-fab-button color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-
-
   <ion-list>
-    <ion-item *ngFor="let clase of ClasesDisp" >
-      <ion-avatar>
-        <img src="" alt="">
-      </ion-avatar>
+    <ion-item *ngFor="let subject of SubjectList" [routerLink]="['/']"> <!---->
       <div>
         <ion-label>
-          {{clase.fecha}},{{clase.hora}}
-          
+          {{subject.class_name}} {{subject.section}} alumnos: {{subject.alumnos}} Profesor:{{subject.teacher_id}}
         </ion-label>
       </div>
     </ion-item>
   </ion-list>
+
+
 </ion-content>

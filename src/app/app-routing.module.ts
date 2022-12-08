@@ -39,14 +39,27 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
-  },  {
-    path: 'create',
+  },
+  {
+    path: 'create-Class',
     loadChildren: () => import('./pages/crud-Class/create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'list',
+    path: 'list-Class',
     loadChildren: () => import('./pages/crud-Class/list/list.module').then( m => m.ListPageModule)
   },
+  {
+    path: 'update-Class',
+    loadChildren: () => import('./pages/crud-Class/update/update.module').then( m => m.UpdatePageModule)
+  },  {
+    path: 'subject-list',
+    loadChildren: () => import('./pages/subject/subject-list/subject-list.module').then( m => m.SubjectListPageModule)
+  },
+  {
+    path: 'subject-detail',
+    loadChildren: () => import('./pages/subject/subject-detail/subject-detail.module').then( m => m.SubjectDetailPageModule)
+  },
+
 
 
 ];

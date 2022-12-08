@@ -92,58 +92,71 @@
     {
       "id": 1,
       "class_name": "calidad de software",
-      "section":  "MAS_113",
-      "teacher_id": "CnsF2s"
+      "section": "MAS_113",
+      "teacher_id": "CnsF2s",
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "1bCC-Rz"
+      ]
     },
     {
       "id": 2,
       "class_name": "Programacion de aplicaciones moviles",
-      "section":  "MEC_311",
-      "teacher_id": "aQANNzE"
+      "section": "MEC_311",
+      "teacher_id": "aQANNzE",
+      "class_img_url":"",
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "3"
+      ]
     },
     {
       "id": 3,
       "class_name": "Programacion de Bases de datos",
-      "section":  "REC_311",
-      "teacher_id": "aQANNzE"
+      "section": "REC_311",
+      "teacher_id": "aQANNzE",
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "2",
+        "4"
+      ]
     },
     {
       "id": 4,
       "class_name": "Ingenieria de software",
-      "section":  "EXD_311",
-      "teacher_id": "CnsF2s"
+      "section": "EXD_311",
+      "teacher_id": "CnsF2s",
+      "alumnos": [
+        "mG8Vg_3",
+        "KJzhpX3",
+        "2",
+        "4"
+      ]
     }
   ],
   "Clases": [
     {
       "id": 1,
       "ramo_id": 1,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "1bCC-Rz"
-      ],
+      "fecha": "hoy",
+      "hora": "xupaloentonces y media",
       "disponible": true
     },
     {
       "id": 2,
       "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "3"
-      ],
+      "fecha": "hoy",
+      "hora": "xupaloentonces y media",
       "disponible": true
     },
     {
       "id": 2,
       "ramo_id": 3,
-      "alumnos": [
-        "mG8Vg_3",
-        "KJzhpX3",
-        "2",
-        "4"
-      ],
+      "fecha": "hoy",
+      "hora": "",
       "disponible": true
     }
   ]

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ActivatedRoute, NavigationExtras, Router, Routes } from '@angular/router';
-
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
 import { MenuController } from '@ionic/angular';
-
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,15 +15,21 @@ export class HomePage implements OnInit {
   roleMessage = '';
   data: any;
 
-  constructor(private auth: AuthService, private activeRoute: ActivatedRoute, private router: Router ,private menu: MenuController, private alertController: AlertController) {
+  constructor(
+    private auth: AuthService,
+    private activeRoute: ActivatedRoute,
+    private router: Router,
+    private menu: MenuController,
+    private alertController: AlertController
+  ) {
     this.activeRoute.queryParams.subscribe(paramas => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
       }
     });
-   }
+  }
 
-  dataToPage(){
+  dataToPage() {
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.data
@@ -83,17 +85,22 @@ export class HomePage implements OnInit {
     this.roleMessage = `Dismissed with role: ${role}`;
   }
 
-  config(){
+  config() {
     console.log('configuraciones');
   }
 
   openMenu() {
-     this.menu.enable(true,'first');
-     this.menu.open('first');
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
   }
 
+  goToSubject(){
+    this.router.navigate(['/subject-list'])
+  }
+
+
   ngOnInit() {
-   this.auth.validate(this.data);
+    this.auth.validate(this.data);
   }
 
 }

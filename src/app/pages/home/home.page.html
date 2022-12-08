@@ -1,8 +1,20 @@
 <ion-header>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
 </ion-header>
+
+<ion-content>
+
+
+
+
+</ion-content>
+
+
 
 
 <ion-app>
@@ -11,46 +23,51 @@
 
     <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="qr">
-      <ion-icon name="scan-outline"></ion-icon>
-      <ion-label>Scan QR</ion-label>
-    </ion-tab-button>
-    
-    <ion-tab-button (click)="dataToPage()">
-      <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Perfil</ion-label>
-    </ion-tab-button>
+      <ion-tab-button tab="qr">
+        <ion-icon name="scan-outline"></ion-icon>
+        <ion-label>Scan QR</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="asistencia">
-      <ion-icon name="book-outline"></ion-icon>
-      <ion-label>Asistencia</ion-label>
-    </ion-tab-button>  
+      <ion-tab-button (click)="dataToPage()">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="asistencia">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Asistencia</ion-label>
+      </ion-tab-button>
 
 
-        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageList()" routerLinkActive="tab-selected" routerLink="/list">
-          <ion-icon name="list-outline"></ion-icon>
-          <ion-label>Lista de Usuarios</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageCreate()" routerLinkActive="tab-selected" routerLink="/create">
-          <ion-icon name="person-outline"></ion-icon>
-          <ion-label>Añadir un usuario</ion-label>
-        </ion-tab-button>
+      <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageList()" routerLinkActive="tab-selected"
+        routerLink="/list">
+        <ion-icon name="list-outline"></ion-icon>
+        <ion-label>Lista de Usuarios</ion-label>
+      </ion-tab-button>
 
+      <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPageCreate()" routerLinkActive="tab-selected"
+        routerLink="/create">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Añadir un usuario</ion-label>
+      </ion-tab-button>
 
     </ion-tab-bar>
 
     <ion-menu side="end" content-id="main-content">
+
+      
       <ion-header>
         <ion-toolbar translucent>
           <ion-title>Opciones</ion-title>
         </ion-toolbar>
       </ion-header>
+
+
       <ion-content>
         <ion-list>
-          <ion-item (click)="presentAlert('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')" >
-              <ion-icon name="log-out" slot="start"></ion-icon>
-              <ion-label>Cerrar Sesión</ion-label>
+          <ion-item (click)="presentAlert('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')">
+            <ion-icon name="log-out" slot="start"></ion-icon>
+            <ion-label>Cerrar Sesión</ion-label>
           </ion-item>
           <ion-item (click)="config()">
             <ion-icon name="settings" slot="start"></ion-icon>
@@ -63,7 +80,7 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-  
+
     <div class="ion-page" id="main-content">
       <ion-header>
         <ion-toolbar>
@@ -75,7 +92,20 @@
           <ion-title>Bienvenido {{data.name}}</ion-title>
         </ion-toolbar>
       </ion-header>
-    </div>
+      <ion-content>
+        <ion-list>
   
+          <ion-item [routerLink]="['/subject-list']">
+            <img src="" slot="start" id="hoja" alt="">
+            <ion-label>
+              Ramos
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+
+
+      </ion-content>
+    </div>
   </ion-tabs>
 </ion-app>

@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ListPage implements OnInit {
 
-  data:any;
+  data: any;
   Users: any = [];
 
   constructor(
@@ -37,13 +37,13 @@ export class ListPage implements OnInit {
     })
   }
 
-  dataToEdit(id){
+  dataToEdit(id) {
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.data
       }
     };
-    this.router.navigate(['update/'+id], navigationExtras)
+    this.router.navigate(['update/' + id], navigationExtras)
   }
 
   dataToPageHome() {
@@ -58,11 +58,11 @@ export class ListPage implements OnInit {
   removeUser(user) {
     if (window.confirm('Estas seguro?')) {
       this.userCrudService.deleteUser(user.id)
-      .subscribe(() => {
+        .subscribe(() => {
           this.ionViewDidEnter();
           console.log('Usuario borrado!')
         }
-      )
+        )
     }
   }
 
