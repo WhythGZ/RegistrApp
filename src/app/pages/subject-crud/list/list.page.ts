@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ListPage implements OnInit {
 
   Subjects: any = [];
-
+  info: any;
   data: any;
 
   constructor(
@@ -29,6 +29,16 @@ export class ListPage implements OnInit {
     });
   }
 
+  dataToQR(id: string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        info: this.info,
+        user: this.data
+      }
+    };
+    this.router.navigate(['qr/', id], navigationExtras)
+  }
+
   ngOnInit() {
     this.auth.validate(this.data);
   }
@@ -40,7 +50,7 @@ export class ListPage implements OnInit {
   dataToPage(path: string) {
     let navigationExtras: NavigationExtras = {
       state: {
-        user: this.data
+        subject: this.data
       }
     };
     this.router.navigate([path], navigationExtras)
@@ -48,7 +58,7 @@ export class ListPage implements OnInit {
   dataToEdit(id: string){
     let navigationExtras: NavigationExtras = {
       state: {
-        user: this.data
+        subject: this.data
       }
     };
     this.router.navigate(['subupdate/',id], navigationExtras)

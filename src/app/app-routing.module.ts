@@ -52,7 +52,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/subject-crud/update/update.module').then( m => m.UpdatePageModule)
   },
   {
-    path: 'qr',
+    path: 'qr/:id',
     loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
   },
 

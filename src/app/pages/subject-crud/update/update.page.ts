@@ -33,7 +33,7 @@ export class UpdatePage implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.activeRoute.queryParams.subscribe(paramas => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.user;
+        this.data = this.router.getCurrentNavigation().extras.state.subject;
       }
     });
     this.subjectForm = this.formBuilder.group({
@@ -124,7 +124,7 @@ export class UpdatePage implements OnInit {
   dataToPage(path:string){
     let navigationExtras: NavigationExtras = {
       state: {
-        user: this.data
+        subject: this.data
       }
     };
     this.router.navigate([path], navigationExtras)
