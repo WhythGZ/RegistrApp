@@ -75,13 +75,13 @@ export class UpdatePage implements OnInit {
     await toast.present();
   }
 
-  dataToPage(){
+  dataToPage(path:string){
     let navigationExtras: NavigationExtras = {
       state: {
         user: this.data
       }
     };
-    this.router.navigate(['profile'], navigationExtras)
+    this.router.navigate([path], navigationExtras)
   }
 
   validaRut(rutCompleto:any) {
@@ -187,7 +187,7 @@ export class UpdatePage implements OnInit {
               this.userCrudService.updateUser(this.id, this.updateUserFg.value)
               .subscribe(() => {
                 this.updateUserFg.reset();
-                this.dataToPage();
+                this.dataToPage('profile');
               })
               return true;
             }
