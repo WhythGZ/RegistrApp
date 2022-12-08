@@ -56,6 +56,7 @@ export class CreatePage implements OnInit {
     this.subjectForm = this.formBuilder.group({
       name: [''],
       code: [''],
+      teachersId: [''],
       teachersName: [''],
       days: [''],
     })
@@ -94,6 +95,15 @@ export class CreatePage implements OnInit {
     }
   }
 
+  dataToPage(path: string) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate([path], navigationExtras)
+  }
+
   onSubmit(){
     if(!this.subjectFormRaw.valid){
       console.log('Debe rellenar los campos');
@@ -104,6 +114,7 @@ export class CreatePage implements OnInit {
       let name = this.subjectFormRaw.value['name'];
       let code = this.subjectFormRaw.value['code'];
       let teachersName = this.data.name + " " + this.data.suname;
+      let teachersId = this.data.id;
       let weekDay1 = this.subjectFormRaw.value['weekDay1']
       let weekDay2 = this.subjectFormRaw.value['weekDay2']
       let weekDay3 = this.subjectFormRaw.value['weekDay3']
@@ -145,6 +156,7 @@ export class CreatePage implements OnInit {
       this.subjectForm.value['name']=name;
       this.subjectForm.value['code']=code;
       this.subjectForm.value['teachersName']=teachersName;
+      this.subjectForm.value['teachersId']=teachersId;
       this.subjectForm.value['days']=days;
       console.log(this.subjectForm.value)
       this.subjectCrudService.createSubject(this.subjectForm.value)

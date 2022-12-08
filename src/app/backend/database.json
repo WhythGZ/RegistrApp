@@ -101,6 +101,7 @@
   "subjects": [
     {
       "name": "Programacion Movil",
+      "teachersId": "aQANNzE",
       "teachersName": "Fabian Carvacho",
       "code": "PGY4121",
       "days": [
@@ -111,7 +112,8 @@
     },
     {
       "name": "Arquitectura",
-      "teachersName": "Jose Pino",
+      "teachersId": "CnsF2s",
+      "teachersName": "Magdalena Nieto",
       "code": "ASY4131",
       "days": [
         "Jueves 08:31-10:40 201",
@@ -122,6 +124,7 @@
     {
       "name": "Calidad de Software",
       "code": "CSY4111",
+      "teachersId": "aQANNzE",
       "teachersName": "Fabian Carvacho",
       "days": [
         "Lunes 08:31-11:20 202"
@@ -131,6 +134,7 @@
     {
       "name": "Estadistica Descriptiva",
       "code": "MAT4140",
+      "teachersId": "aQANNzE",
       "teachersName": "Fabian Carvacho",
       "days": [
         "Lunes 11:31-12:50 208",

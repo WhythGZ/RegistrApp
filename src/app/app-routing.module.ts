@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/subject-crud/list/list.module').then( m => m.ListPageModule)
   },
   {
-    path: 'subupdate',
+    path: 'subupdate/:id',
     loadChildren: () => import('./pages/subject-crud/update/update.module').then( m => m.UpdatePageModule)
   },
 
