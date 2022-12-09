@@ -168,7 +168,7 @@ export class CreatePage implements OnInit {
         this.zone.run(() => {
           this.subjectForm.reset();
           this.presentToast('bottom', 'Registrado correctamente', 'checkmark-circle-outline');
-          this.router.navigate(['/list']);
+          this.router.navigate(['/sublist']);
         })
       })
     }

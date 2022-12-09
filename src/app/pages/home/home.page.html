@@ -13,7 +13,7 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item (click)="presentAlert('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')" >
+          <ion-item (click)="presentAlertExit('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')" >
               <ion-icon name="log-out" slot="start"></ion-icon>
               <ion-label>Cerrar Sesión</ion-label>
           </ion-item>
@@ -21,7 +21,7 @@
             <ion-icon name="settings" slot="start"></ion-icon>
             <ion-label>Configuración</ion-label>
           </ion-item>
-          <ion-item (click)="presentAlert('Salir','¿Esta seguro que desea salir?')">
+          <ion-item (click)="presentAlertExit('Salir','¿Esta seguro que desea salir?')">
             <ion-icon name="power" slot="start"></ion-icon>
             <ion-label>Salir</ion-label>
           </ion-item>
@@ -50,7 +50,7 @@
     <ion-icon name="add-circle-outline"></ion-icon>
     <ion-label>Crear Asignaturas</ion-label>
   </ion-tab-button>
-    <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="openCamera()">
+    <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="QRData()">
       <ion-icon name="scan-outline"></ion-icon>
       <ion-label>Scan QR</ion-label>
     </ion-tab-button>
@@ -58,9 +58,9 @@
     <ion-icon name="person-outline"></ion-icon>
     <ion-label>Perfil</ion-label>
   </ion-tab-button>
-  <ion-tab-button *ngIf="data.teacher !== 'true';" tab="asistencia">
-    <ion-icon name="book-outline"></ion-icon>
-    <ion-label>Asistencia</ion-label>
+  <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="dataToPage('sublist')" routerLinkActive="tab-selected" routerLink="/sublist">
+    <ion-icon name="reorder-four-outline"></ion-icon>
+    <ion-label>Asignaturas</ion-label>
   </ion-tab-button>  
   <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPage('list')" routerLinkActive="tab-selected" routerLink="/list">
     <ion-icon name="list-outline"></ion-icon>

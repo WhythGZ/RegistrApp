@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Route, Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { SubjectCrudService } from 'src/app/services/subject-crud.service';
+import { Geolocation } from '@capacitor/geolocation';
+
+
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.page.html',
@@ -13,6 +16,8 @@ export class QrPage implements OnInit {
   rawDate = new Date()
   date = this.rawDate.getDate()+'/'+(this.rawDate.getMonth()+1)+'/'+this.rawDate.getFullYear()
   value = ""
+  latitude: any;
+  longitude:any;
   data: any;
   qrData: any;
   name: any;
@@ -29,14 +34,18 @@ export class QrPage implements OnInit {
       }
     });
   }
-  
+  currentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    this.latitude = coordinates.coords.latitude;
+    this.longitude = coordinates.coords.longitude;
+  };
   async fetchSubject(){
     await this.subjectCrudService.getSubject(this.id).subscribe((response) => {
       this.Subject = response
       this.name = this.Subject['name'];
       this.code = this.Subject['code'];
       this.teacher = this.Subject['teachersName'];
-      this.value = this.Subject['code']+' | '+this.date
+      this.value = (this.id,+' | '+this.Subject['code']+' | '+this.date+' | '+this.latitude+','+this.longitude)
     })
   }
 
@@ -50,6 +59,7 @@ export class QrPage implements OnInit {
   }
 
   ngOnInit() {
+    this.currentPosition()
     this.fetchSubject()
   }
 

@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="data.teacher==='true'">
   <ion-list *ngFor="let subject of Subjects">
     <ion-item *ngIf="subject.teachersId === data.id">
       <ion-label>
@@ -27,4 +28,39 @@
       </div>
     </ion-item>
   </ion-list>
+</div>
+<div *ngIf="data.teacher!=='true'">
+  <ion-list *ngFor="let subject of Subjects">
+    <ion-item>
+      <ion-label>
+        <h1>{{subject.name}}</h1>
+        <h2>{{subject.code}}</h2>
+        <h3>{{subject.teachersName}}</h3>
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="getUserAsist(subject.id)">
+          <ion-icon name="eye-outline" style="zoom:1.5"></ion-icon>
+        </button>
+        <ion-modal [isOpen]="isModalOpen">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-title>Asistencia</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen(false)">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+              <h2 class="">Usted ha venido {{number}} dias a {{subject.name}}, Estos son los dias que ha asistido:</h2>
+              <h3 class="text-center">
+                {{subscribesNumber}}
+              </h3>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>
 </ion-content>

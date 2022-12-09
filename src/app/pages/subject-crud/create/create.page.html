@@ -47,7 +47,7 @@
                     <ion-input type="time" formControlName="start{{number+1}}" required></ion-input>
                     <ion-label position="floating">Hasta Las</ion-label>
                     <ion-input type="time" formControlName="end{{number+1}}" required></ion-input>
-                    <ion-label position="floating">Sala Dia</ion-label>
+                    <ion-label position="floating">Sala</ion-label>
                     <ion-input type="number" formControlName="room{{number+1}}" required></ion-input>   
                   </ion-item>
                 </ion-list>
@@ -58,7 +58,7 @@
               </ion-col>
 
               <ion-col *ngIf="daysNumber >= 1;">
-                <ion-button type="submit" color="warning" class="mb-5" expand="block">Crear Usuario</ion-button>
+                <ion-button type="submit" color="warning" class="mb-5" expand="block">Crear Asignatura</ion-button>
               </ion-col>
 
             </ion-row>

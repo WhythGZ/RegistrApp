@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import { Camera, CameraResultType } from '@capacitor/camera';
 
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,8 @@ export class HomePage implements OnInit {
   roleMessage = '';
   data: any;
   code: any;
+  latitude:any;
+  longitude:any;
 
   constructor(private auth: AuthService, private activeRoute: ActivatedRoute, private router: Router ,private menu: MenuController, private alertController: AlertController) {
     this.activeRoute.queryParams.subscribe(paramas => {
@@ -30,6 +33,43 @@ export class HomePage implements OnInit {
       }
     });
    }
+   currentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    this.latitude = coordinates.coords.latitude;
+    this.longitude = coordinates.coords.longitude;
+  };
+   async QRData() {
+    const alert = await this.alertController.create({
+      header: 'Please enter your info (your position is: latitude:'+this.latitude.toString()+' longitude:'+this.longitude.toString()+')',
+      buttons: [
+        {
+            text: 'OK',
+            handler: data => {
+                console.log(JSON.stringify(data)); //to see the object
+                console.log(data.QRCode);
+                console.log(data.date);
+            }
+        }
+      ],
+      inputs: [
+        {
+          name:'QRCode',
+          placeholder: 'QRCode',
+          attributes: {
+            maxlength: 8,
+          },
+        },
+        {
+          name:'date',
+          type: 'date',
+          placeholder: 'Date',
+          min: 1,
+          max: 100,
+        }
+      ],
+    });
+    await alert.present();
+  }
 
    async openCamera(){
       const image = await Camera.getPhoto({
@@ -49,7 +89,7 @@ export class HomePage implements OnInit {
     this.router.navigate([page], navigationExtras)
   }
 
-  async presentAlert(header, message) {
+  async presentAlertExit(header, message) {
     const alert = await this.alertController.create({
       header,
       message,
@@ -89,6 +129,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
    this.auth.validate(this.data);
+   this.currentPosition()
   }
 
 }
