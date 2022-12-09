@@ -45,7 +45,7 @@ export class QrPage implements OnInit {
       this.name = this.Subject['name'];
       this.code = this.Subject['code'];
       this.teacher = this.Subject['teachersName'];
-      this.value = (this.id,+' | '+this.Subject['code']+' | '+this.date+' | '+this.latitude+','+this.longitude)
+      this.value = (this.id+' | '+this.Subject['code']+' | '+this.date+' | '+this.latitude+','+this.longitude)
     })
   }
 
